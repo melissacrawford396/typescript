@@ -50,3 +50,9 @@ re-run npm start
 then open the index.html file in the browser
 
 AND IT WAS THERE!! woot!
+
+-------
+https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html
+
+Seems like the other article was just some of the default hello world of typescript the language.
+
