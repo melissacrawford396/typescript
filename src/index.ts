@@ -1,1 +1,1 @@
-console.log('Hello Typescript')
+console.log('--- index.ts ran ---');
