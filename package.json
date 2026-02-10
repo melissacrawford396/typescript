@@ -15,14 +15,21 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start2": "tsc ",
+    "tsc": "tsc",
     "start": "tsc && node dist/index.js",
+    "build": "tsc && cp src/index.html dist/index.html",
+    "startHttp": "npm run build && http-server dist -o",
+    "startPy": "npm run build && python3 -m http.server 8000 --directory dist",
+    "start:serve": "http-server dist -o",
+    "watch": "tsc --watch",
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "typescript": "^5.9.3"
   },
   "devDependencies": {
+    "http-server": "^14.1.1",
     "ts-node": "^10.9.2"
   }
 }

@@ -56,3 +56,30 @@ https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.htm
 
 Seems like the other article was just some of the default hello world of typescript the language.
 
+https://www.typescriptlang.org/docs/handbook/dom-manipulation.html
+- to manipulate the DOM tomorrow!
+
+If I want to run a script that isn't `npm run` you need to call it like: 
+- `npm run startPy`
+
+```json
+"scripts": {
+  "start": "tsc && http-server dist -o src/index.html",
+  "start:dev": "concurrently \"tsc --watch\" \"http-server dist -o src/index.html\"",
+  "watch": "tsc --watch",
+  "serve": "http-server dist -o src/index.html",
+  "start:all": "npm-run-all --parallel watch serve"
+}
+```
+Install helpers 
+```bash
+npm install --save-dev concurrently npm-run-all http-server
+```
+
+Then you get these commands
+```
+npm start                # runs the default `start`
+npm run start:dev        # runs the dev watcher + server
+npm run serve            # run only the static server
+npm run start:all        # run multiple tasks in parallel
+```
