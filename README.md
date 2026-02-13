@@ -83,3 +83,70 @@ npm run start:dev        # runs the dev watcher + server
 npm run serve            # run only the static server
 npm run start:all        # run multiple tasks in parallel
 ```
+
+#### Node interface
+Allow HTMLElements to utilize a subset of standard methods. (Generics) Then you can pass all sorts of types to appendChild as long as it chains up to Node.
+- The document.getElementById function returns HTMLElement
+- HTMLElement interface extends the Element interface
+- Element interface extend the Node interface
+
+```ts
+appendChild<T extends Node>(node: T): T;
+```
+
+#### Difference between children and childNodes
+- `children`:
+- `childNodes`: Can contain additional HTML nodes that children cannot
+```
+<div>
+  <p>Hello, World</p>
+  <p>TypeScript!</p>
+</div>;
+
+const div = document.getElementsByTagName("div")[0];
+div.children;
+// HTMLCollection(2) [p, p]
+div.childNodes;
+// NodeList(2) [p, p]
+```
+
+So if you remove the <p></p> from around TypeScript! It'll change the representation. 
+- B/c children can't be Node, text is literal Node containing the text TypeScript!. not in childNodes b/c this is considered an HTMLElement
+- But childNodes keeps both, one is just now a text instead of having 2 p's.
+```
+<div>
+  <p>Hello, World</p>
+  TypeScript!
+</div>;
+const div = document.getElementsByTagName("div")[0];
+div.children;
+// HTMLCollection(1) [p]
+div.childNodes;
+// NodeList(2) [p, text]
+```
+
+
+#### Other good ones
+querySelector and querySelectorAll
+- Good methods to get lists of dom elements that have more stringent requirements
+- lib.dom.d.ts (defines them)
+
+querySelectorAll:
+- New return type: NodeListOf
+- Implements following properties and methods
+  - length
+  - item[index]
+  - forEach((value, key, parent) => void)
+  - and numeric indexing
+- returns lis of elements, not nodes (which is what NodeList was returning from the .childNodes)
+- Elements extends from Node
+
+```
+<ul>
+  <li>First :)</li>
+  <li>Second!</li>
+  <li>Third times a charm.</li>
+</ul>;
+const first = document.querySelector("li"); // returns the first li element
+const all = document.querySelectorAll("li"); // returns the list of all li elements
+```
