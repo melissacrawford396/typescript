@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><title>TypeScript Dom Manipulation</title></head>
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typescript Button</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
   <body>
-    <div id="app"></div>
-    <!-- Assume dom.js is the compiled output of dom.ts -->
-     <script src="../dist/dommy.js"></script>
-
-     <!-- add a tag -->
-     <taggy>Custom Tag Content</taggy>
+    <button id="myButton", type="button">Click Me!</button>
+    <p id="messageArea".>Nothing happened yet.</p>
+    <!-- Link the transpiled JavaScript File -->
+     <script src="../dist/main.js"></script>
   </body>
 </html>

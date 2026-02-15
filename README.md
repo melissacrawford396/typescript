@@ -158,3 +158,14 @@ https://www.youtube.com/watch?v=g1_3XqJwLiQ&t=732s
 - Use service accounts
 - Should be using a load balancer and not an external IP (dur) 
 - Egress to internet can be allowed through Cloud NAT
+
+
+
+## Build, Run, Clean
+You can also call the compile with other params to clean out the dist file.
+- This will tell you 'what' files it'll delete.
+- Not sure why it will only delete the file that it will make. if there was an extra thing.js in there, it won't get deleted from the --clean
+```bash
+tsc --build --clean  --dry
+```
+
