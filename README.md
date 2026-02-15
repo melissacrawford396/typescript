@@ -150,3 +150,11 @@ querySelectorAll:
 const first = document.querySelector("li"); // returns the first li element
 const all = document.querySelectorAll("li"); // returns the list of all li elements
 ```
+
+
+## Securing my Compute Engine
+https://www.youtube.com/watch?v=g1_3XqJwLiQ&t=732s
+- No ssh keys. Use Identity-Aware proxy TCP tunneling or bastion host
+- Use service accounts
+- Should be using a load balancer and not an external IP (dur) 
+- Egress to internet can be allowed through Cloud NAT
